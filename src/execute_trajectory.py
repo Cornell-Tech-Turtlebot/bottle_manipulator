@@ -23,9 +23,11 @@ values3 = [0.0,0.0,-0.92,0.62]
 PICKED = False
 DROPPED = False
 arm_group = None
+gripper_group
 
 ###### Functions ########
 def open_gripper():
+    global gripper_group
     print "Opening Gripper..."
     #print "THIS IS WHAT IS IN gripper_group_variable_values", gripper_group_variable_values_par 
     gripper_group_variable_values_par1=[0,0]        
@@ -38,6 +40,7 @@ def open_gripper():
     rospy.sleep(1)
 
 def close_gripper():
+    global gripper_group
     rospy.sleep(2)
     print "Closing Gripper..."
     gripper_group_variable_values_par1=[0.005,0] 
