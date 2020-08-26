@@ -22,7 +22,7 @@ values3 = [0.0,0.0,-0.92,0.62]
 
 PICKED = False
 DROPPED = False
-
+arm_group = None
 
 ###### Functions ########
 def open_gripper():
@@ -49,6 +49,7 @@ def close_gripper():
     rospy.sleep(1)
 
 def move_home():
+    global arm_group
     arm_group.set_named_target("home")
     print "Executing Move: Home"
     plan1 = arm_group.plan()
@@ -61,6 +62,7 @@ def move_home():
     rospy.sleep(2)
     
 def move_zero():
+    global arm_group
     arm_group.set_named_target("zero")
     print "Executing Move: Zero"
     plan1 = arm_group.plan()
@@ -72,7 +74,7 @@ def move_zero():
     rospy.sleep(1)
 
 def move_position1(): 
-            
+    global arm_group        
     arm_group.set_named_target("position1")
     print "Executing Move: Position1"
     plan1 = arm_group.plan()
@@ -85,6 +87,7 @@ def move_position1():
     rospy.sleep(3)
 
 def move_position2():
+    global arm_group
     arm_group.set_named_target("position2")
     print "Executing Move: Position2"
     plan1 = arm_group.plan()
@@ -97,6 +100,7 @@ def move_position2():
     rospy.sleep(3)
 
 def move_position3():
+    global arm_group
     arm_group.set_named_target("position3")
     print "Executing Move: Position3"
     plan1 = arm_group.plan()
@@ -149,6 +153,8 @@ def dropoff():
 
 
 def setup_gripper():
+    global arm_group
+
     moveit_commander.roscpp_initialize(sys.argv)
 
     robot = moveit_commander.RobotCommander()
