@@ -157,6 +157,7 @@ def dropoff():
 
 def setup_gripper():
     global arm_group
+    global gripper_group
 
     moveit_commander.roscpp_initialize(sys.argv)
 
