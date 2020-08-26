@@ -193,6 +193,7 @@ def state_callback(msg):
 
 def listener():
     rospy.init_node('execute_trajectory')
+    setup_gripper()
 
     rospy.Subscriber('/state', String, state_callback)
 
@@ -201,5 +202,4 @@ def listener():
 
 
 if __name__ == '__main__':
-    setup_gripper()
     listener()
