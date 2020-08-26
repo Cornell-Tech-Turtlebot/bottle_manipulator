@@ -10,6 +10,7 @@ import rospy
 import moveit_commander
 import moveit_msgs.msg
 import geometry_msgs.msg
+from std_msgs.msg import Float32, Float32MultiArray, Bool, String
 
 names1 = 'position1'
 values1 = [0.0,0.85,0.1,-.90]
