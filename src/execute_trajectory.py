@@ -104,9 +104,7 @@ def move_position3():
     arm_group.stop()
     arm_group.clear_pose_targets()
     variable = arm_group.get_current_pose()
-    print (variable.pose)
-        
-
+    print (variable.pose)        
     rospy.sleep(2)
 
 
@@ -175,7 +173,6 @@ def setup_gripper():
 
 
 def state_callback(msg):
-
     if msg.data == 'pickup_trash':
         pickup()
 
@@ -184,9 +181,7 @@ def state_callback(msg):
 
 
 def listener():
-
     rospy.init_node('execute_trajectory')
-    setup_gripper()
 
     rospy.Subscriber('/state', String, state_callback)
 
@@ -195,4 +190,5 @@ def listener():
 
 
 if __name__ == '__main__':
+    setup_gripper()
     listener()
