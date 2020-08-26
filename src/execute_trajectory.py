@@ -23,7 +23,7 @@ values3 = [0.0,0.0,-0.92,0.62]
 PICKED = False
 DROPPED = False
 arm_group = None
-gripper_group
+gripper_group = None
 
 ###### Functions ########
 def open_gripper():
