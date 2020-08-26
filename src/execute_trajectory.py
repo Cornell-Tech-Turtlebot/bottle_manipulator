@@ -113,20 +113,26 @@ def move_position3():
 
 def pickup():
     ## Pick up bottle
-    global PICKED
+    #global PICKED
+    pickup_done_pub = rospy.Publisher('state',String,queue_size=1)
+
     move_home()
     open_gripper()
     start = 1000
     move_position1()
     close_gripper()
     move_position2()
-    PICKED = True
+    #PICKED = True
     #move_home()
-    return PICKED
+
+    pickup_done_pub.publish('pickup_trash_done')
+    return True
 
 def dropoff():
     ## Drop bottle
-    global DROPPED
+    #global DROPPED
+
+    dropoff_done_pub = rospy.Publisher('state',String,queue_size=1)
     move_position3()
     #open_gripper()
     move_home()
@@ -135,8 +141,12 @@ def dropoff():
     move_home()
     close_gripper()
     moveit_commander.roscpp_shutdown()
-    DROPPED = True
-    return DROPPED
+
+    #DROPPED = True
+    #PICKED = False
+
+    dropoff_done_pub.publish('drop_trash_done')
+    return True
 
 
 def setup_gripper():
@@ -165,6 +175,7 @@ def setup_gripper():
 
 
 def state_callback(msg):
+
     if msg.data == 'pickup_trash':
         pickup()
 
