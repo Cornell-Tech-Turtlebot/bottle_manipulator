@@ -146,7 +146,7 @@ def dropoff():
     open_gripper()
     move_home()
     close_gripper()
-    moveit_commander.roscpp_shutdown()
+    #moveit_commander.roscpp_shutdown()
 
     #DROPPED = True
     #PICKED = False
