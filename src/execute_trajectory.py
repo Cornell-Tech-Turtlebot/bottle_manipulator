@@ -127,7 +127,8 @@ def pickup():
     start = 1000
     move_position1()
     close_gripper()
-    move_position2()
+    #move_position2()
+    move_position3()
     #PICKED = True
     #move_home()
 
@@ -139,9 +140,9 @@ def dropoff():
     #global DROPPED
 
     dropoff_done_pub = rospy.Publisher('state',String,queue_size=1)
-    move_position3()
+    #move_position3()
     #open_gripper()
-    move_home()
+    #move_home()
     #move_position1()
     open_gripper()
     move_home()
